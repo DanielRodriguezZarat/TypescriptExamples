@@ -28,6 +28,15 @@ const { audioVolume, song: cancion, details } = newSong;
 // Hacemos destructuración del objeto Details
 const { author } = details;
 
+// Destructuración de arrays
+
+// Hacemos desestructuración del ultimo elemeno y si no existe se le asigna Not Found
+const [, , chipotle = "Not found"]: string[] = [
+  "Rocky",
+  "Laika",
+  "Chipotle (perro marron)",
+];
+console.log(chipotle);
 console.log(
   `El volumen de la canción ${cancion} es ${audioVolume} y el autor es ${author}`
 );
