@@ -1,5 +1,5 @@
 // Creamos una interfaz para los productos
-interface Product {
+export interface Product {
   descripcion: string;
   price: number;
 }
@@ -23,16 +23,13 @@ interface Options {
 }
 
 // Declaramos una función con los aprametros de opciones y retorne un arreglo de numeros
-const taxCalculate = (options: Options): number[] => {
+export const taxCalculate = (options: Options): number[] => {
   // Destructuramos options
   const { products, tax } = options;
   let total = 0;
 
-  // forEach para iterar cada elemento de products
-  products.forEach((element) => {
-    // Destructuramos el precio de cada elemento en el array
-    const { price } = element;
-
+  // forEach para iterar cada elemento de products y destructuramos el price del element
+  products.forEach(({ price }) => {
     // Sumamos el valor de total más el precio del producto
     total += price;
   });
@@ -46,8 +43,7 @@ const shopingCart = [MacMini, XboxSeriesS];
 const tax = 0.15;
 
 // Llamamos a la función y destructuramos la respuesta
-const res = taxCalculate({ tax, products: shopingCart });
-const [total, totalTax] = res;
+const [total, totalTax] = taxCalculate({ tax, products: shopingCart });
 
 console.log(
   `El total por los productos es ${total}, más el IVA el total final seria ${totalTax}`
