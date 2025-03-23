@@ -12,6 +12,18 @@ export class Person {
   }
 }
 
-const danilos = new Person("Danilos", "ROZD000502HTLDRNA9");
+// Hacemos un extends de la clase Person para obtener información del constructor
+export class Escuela extends Person {
+  constructor(
+    public turno: string,
+    public grado: string,
+    public grupo: string
+  ) {
+    //Con la palabra super hacemos referencia al constructor a la que se extiende
+    super("Danilos", "ROZD000502HTLDRNA9");
+  }
+}
+
+const danilos = new Escuela("Matutino", "Primero", "A");
 
 console.log(danilos);
